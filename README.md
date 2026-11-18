@@ -8,7 +8,7 @@ The project demonstrates a complete MLOps workflow, including data preprocessing
 
 ## 🚀 Live Application
 
-**Live Demo:** [Smart Energy Predictor](YOUR_RENDER_URL)
+**Live Demo:** [Smart Energy Predictor](https://smart-energy-predictor-1wa7.onrender.com)
 
 **GitHub Repository:** [Smart Energy Predictor](https://github.com/Twarit01/Smart-Energy-Predictor)
 
