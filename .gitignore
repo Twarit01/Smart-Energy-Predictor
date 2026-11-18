@@ -1,0 +1,21 @@
+#Python environments and cache
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.DS_Store
+
+# Local secrets
+.env
+.env.*
+!.env.example
+
+# Local MLflow and runtime logs
+mlruns/
+mlflow.db
+logs/*.jsonl
+
+# Editor files
+.vscode/
+.idea/

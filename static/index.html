@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Smart Energy Predictor | Overview</title>
+<style>
+:root{--bg:#11111b;--sidebar:#171724;--panel:#1b1b2a;--panel2:#24243a;--line:#2b2b42;--text:#f4f2ff;--muted:#9695ad;--blue:#5d9cff;--teal:#50d5b2;--purple:#9560ff;--pink:#ed5ba8}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:14px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+button,input{font:inherit}.app{min-height:100vh;display:grid;grid-template-columns:88px 1fr}.sidebar{background:var(--sidebar);border-right:1px solid var(--line);padding:24px 12px;display:flex;flex-direction:column;gap:30px;align-items:center}.brand{display:flex;align-items:center;justify-content:center;gap:0;padding:0 4px}.logo{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(145deg,#347bff 5%,#b34cff 55%,#ed4f9a);font-size:23px;box-shadow:0 8px 28px #874cff55}.brand strong,.brand small{display:none}.nav-label{display:none}.nav{display:grid;gap:13px}.nav button{width:52px;height:52px;display:flex;align-items:center;justify-content:center;gap:0;padding:8px;border:1px solid transparent;border-radius:15px;background:transparent;color:#9695ad;text-align:center;cursor:pointer;font-size:0}.nav button.active{background:linear-gradient(145deg,#9b58ff,#6842d9);border-color:#b78aff;color:#fff;box-shadow:0 8px 24px #8652ff55}.nav button .ico{width:auto;text-align:center;font-size:21px}.nav button:hover:not(.active){background:#111f32;color:#e5efff}.side-bottom{margin-top:auto;border:1px solid var(--line);background:#202033;border-radius:13px;padding:10px 7px;width:100%;text-align:center}.side-bottom strong{display:none}.side-bottom small{font-size:9px;display:block;overflow-wrap:anywhere}.side-bottom small{color:var(--muted)}.api-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--teal);margin-right:7px}.main{padding:30px clamp(18px,3vw,42px) 44px;max-width:1600px;width:100%;margin:0 auto;background:radial-gradient(ellipse at 72% 0%,#32234b55,transparent 38%)}.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:28px}.eyebrow{color:#78aeea;text-transform:uppercase;letter-spacing:1.7px;font-size:10px;font-weight:700}.topbar h1{font-size:30px;letter-spacing:-.9px;margin:3px 0 2px}.sub{color:var(--muted);margin:0;font-size:13px}.top-actions{display:flex;align-items:center;gap:10px}.status{border:1px solid var(--line);border-radius:30px;padding:8px 12px;color:var(--muted);font-size:11px;white-space:nowrap}.avatar{height:35px;width:35px;border-radius:50%;display:grid;place-items:center;background:#203957;color:#cde3ff;font-weight:700}.section-title{font-size:15px;font-weight:700;margin:0 0 13px}.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-bottom:25px}.card,.panel{background:linear-gradient(145deg,#222237,#1a1a29);border:1px solid #303047;border-radius:21px;box-shadow:0 12px 35px #05050c35}.kpi{padding:20px 21px;min-height:126px;position:relative;overflow:hidden}.kpi:first-child{background:linear-gradient(115deg,#7635e8,#a05bff);border-color:#a46aff;box-shadow:0 12px 34px #8545ef40}.kpi:first-child .kpi-top,.kpi:first-child .kpi-note{color:#eee3ff}.kpi:first-child .kpi-icon{background:#ffffff24;color:#fff}.kpi-top{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:12px}.kpi-icon{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:#1b3554;color:#78b8ff;font-size:15px}.kpi-value{font-size:27px;font-weight:780;letter-spacing:-.8px;margin-top:12px}.kpi-note{font-size:11px;color:var(--muted);margin-top:1px}.layout{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(290px,.9fr);gap:18px}.panel{padding:21px;margin-bottom:17px}.panel-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:15px}.panel-head h2{font-size:14px;margin:0}.panel-head p{color:var(--muted);font-size:11px;margin:3px 0 0}.pill{border:1px solid #2b4664;border-radius:30px;padding:5px 9px;color:#a8c8ed;font-size:10px;white-space:nowrap}.chart{height:270px;position:relative}.chart svg{width:100%;height:100%;overflow:visible}.chart-empty{height:100%;display:grid;place-items:center;text-align:center;color:var(--muted);font-size:12px;padding:20px}.chart-legend{display:flex;gap:18px;color:var(--muted);font-size:10px;margin-top:9px}.legend-dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px}.quick-actions{display:grid;gap:10px}.action{display:flex;align-items:center;gap:12px;width:100%;border:1px solid var(--line);background:#242438;border-radius:15px;padding:15px;text-align:left;color:var(--text);cursor:pointer}.action:hover{border-color:#477db4;background:#14263d}.action-icon{width:39px;height:39px;border-radius:12px;background:linear-gradient(145deg,#7543d8,#a64ee8);display:grid;place-items:center;font-size:18px;box-shadow:0 5px 16px #8d49e844}.action strong{display:block;font-size:12px}.action small{display:block;color:var(--muted);font-size:10px;margin-top:2px}.result-box{background:linear-gradient(135deg,#35244f,#24243c);border:1px solid #594078;border-radius:17px;padding:18px;margin-top:15px}.result-label{color:var(--muted);font-size:11px}.result-number{font-size:29px;font-weight:800;letter-spacing:-1px;margin:4px 0 0}.result-meta{font-size:10px;color:var(--muted);margin-top:4px}.tips{display:grid;gap:9px}.tip{display:flex;gap:10px;color:#bdcce0;font-size:11px;line-height:1.55}.tip span{color:#b17bff}.bottom-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:15px}.model-row{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:11px}.model-row:last-child{border:0}.model-row span{color:var(--muted)}.mode-tabs{display:flex;gap:7px;margin-bottom:14px}.mode-tabs button{border:1px solid var(--line);background:#0c1929;color:var(--muted);padding:7px 12px;border-radius:8px;cursor:pointer;font-size:11px}.mode-tabs button.active{background:linear-gradient(120deg,#7543d8,#9b58ff);border-color:#a879ff;color:white}.mode-content{display:none}.mode-content.active{display:block}.field{margin:10px 0}.field label{display:block;font-size:11px;color:#bdcce0;margin-bottom:5px}.field input{width:100%;background:#0a1524;border:1px solid #30445f;color:var(--text);padding:9px;border-radius:8px;font-size:11px}.field small{color:var(--muted);font-size:10px}.two{display:grid;grid-template-columns:1fr 1fr;gap:9px}.btn{border:0;background:linear-gradient(120deg,#7543d8,#a05bff);color:white;font-weight:700;padding:10px 14px;border-radius:9px;cursor:pointer;font-size:11px}.btn:disabled{opacity:.55;cursor:wait}.message{font-size:11px;color:var(--muted);min-height:18px;margin-top:9px}.error{color:#ff9292}.success{color:var(--teal)}.metric-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.metric-tile{border:1px solid #34344e;background:linear-gradient(145deg,#282840,#1c1c2c);border-radius:16px;padding:16px;min-width:0}.metric-tile>span{display:block;color:var(--muted);font-size:11px;font-weight:700;letter-spacing:.7px}.metric-tile strong{display:block;font-size:27px;letter-spacing:-.8px;margin:7px 0 2px}.metric-tile small{color:var(--muted);font-size:10px}.metric-blue strong{color:#70adff}.metric-purple strong{color:#b18aff}.metric-teal strong{color:#58dfbc}.metric-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;border-top:1px solid var(--line);margin-top:15px;padding-top:12px;color:var(--muted);font-size:10px}.text-btn{border:0;background:transparent;color:#b99aff;cursor:pointer;font-size:11px;font-weight:700}.metric-grid-large{margin:6px 0 20px}.metric-grid-large .metric-tile{padding:22px}.metric-grid-large .metric-tile strong{font-size:34px}.model-performance-panel{margin-top:0}.page{display:none}.page.active{display:block}.coming{padding:50px 20px;text-align:center;color:var(--muted)}.coming strong{display:block;color:var(--text);font-size:16px;margin-bottom:6px}.footer{text-align:center;color:#617590;font-size:10px;margin-top:25px}
+@media(max-width:1050px){.kpis{grid-template-columns:repeat(2,1fr)}.layout{grid-template-columns:1fr}.bottom-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){.app{grid-template-columns:1fr}.sidebar{padding:12px 14px;gap:12px;border-right:0;border-bottom:1px solid var(--line);align-items:center}.brand{padding:0}.nav-label,.side-bottom{display:none}.nav{display:flex;overflow:auto}.nav button{width:44px;height:44px;white-space:nowrap;padding:9px}.main{padding:22px 14px}.topbar h1{font-size:22px}.status{display:none}.bottom-grid{grid-template-columns:1fr}.metric-grid{grid-template-columns:1fr}.metric-foot{align-items:flex-start;flex-direction:column}.kpis{gap:9px}.kpi{padding:13px;min-height:105px}.kpi-value{font-size:21px}}
+
+.analytics-kpis{margin-top:4px}
+.analytics-grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(280px,.85fr);gap:16px}
+.analytics-grid>.panel{min-width:0;margin-bottom:0}
+.analytics-main{grid-column:1}
+.analytics-chart{height:265px;position:relative;min-width:0}
+.analytics-chart svg{width:100%;height:100%;display:block}
+.period-list{display:grid;gap:16px;padding:8px 2px}
+.period-row{display:grid;grid-template-columns:88px 1fr 72px;align-items:center;gap:10px;font-size:11px}
+.period-track{height:9px;border-radius:20px;background:#303047;overflow:hidden}
+.period-fill{height:100%;border-radius:20px;background:linear-gradient(90deg,#6b72ff,#bd65ff)}
+.period-row strong{text-align:right;font-size:11px}
+.range-profile{display:grid;gap:18px;padding:14px 2px}
+.range-item{display:flex;justify-content:space-between;gap:12px;align-items:center;font-size:12px}
+.range-item span{color:var(--muted)}
+.range-item strong{font-size:17px}
+.range-track{height:12px;background:#303047;border-radius:20px;position:relative;margin-top:5px;overflow:hidden}
+.range-track i{display:block;height:100%;border-radius:20px;background:linear-gradient(90deg,#4d9df5,#50d5b2,#a05bff)}
+.analytics-note{margin-top:16px;color:var(--muted);font-size:10px;line-height:1.6}
+.analytics-note code{color:#bda0ff}
+@media(max-width:900px){.analytics-grid{grid-template-columns:1fr}.analytics-main{grid-column:auto}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><div class="logo">⚡</div><div><strong>Smart Energy</strong><small>GRID INTELLIGENCE</small></div></div>
+  <div><div class="nav-label">Workspace</div><nav class="nav">
+    <button class="active" data-page="overview"><span class="ico">▦</span>Overview</button>
+    <button data-page="predictions"><span class="ico">↗</span>Predictions</button>
+    <button data-page="analytics"><span class="ico">▥</span>Analytics</button>
+    <button data-page="performance"><span class="ico">◈</span>Model performance</button>
+    <button data-page="history"><span class="ico">◷</span>Prediction history</button>
+  </nav></div>
+  <div class="side-bottom"><div><span class="api-dot"></span><strong style="font-size:11px">API connection</strong></div><small id="sideStatus">Checking local API…</small></div>
+</aside>
+
+<main class="main">
+<section class="page active" id="overview">
+  <div class="topbar"><div><div class="eyebrow">Energy intelligence / Overview</div><h1>Energy demand command center</h1><p class="sub">Delhi grid intelligence · 5-minute demand forecasting</p></div><div class="top-actions"><div class="status" id="apiStatus">● Checking API</div><div class="avatar">SE</div></div></div>
+  <div class="kpis">
+    <div class="card kpi"><div class="kpi-top"><span id="kpiForecastLabel">Latest recorded demand</span><span class="kpi-icon">↗</span></div><div class="kpi-value" id="kpiForecast">—</div><div class="kpi-note" id="kpiForecastNote">Latest reading from your dataset</div></div>
+    <div class="card kpi"><div class="kpi-top">Predictions this session <span class="kpi-icon">⌁</span></div><div class="kpi-value" id="kpiCount">0</div><div class="kpi-note">Generated in this browser session</div></div>
+    <div class="card kpi"><div class="kpi-top">Active model <span class="kpi-icon">◈</span></div><div class="kpi-value" style="font-size:19px" id="kpiModel">—</div><div class="kpi-note">Loaded from model/model.joblib</div></div>
+    <div class="card kpi"><div class="kpi-top">Forecast horizon <span class="kpi-icon">◷</span></div><div class="kpi-value">5 min</div><div class="kpi-note">Short-term demand forecasting</div></div>
+  </div>
+  <div class="layout">
+    <div>
+      <div class="panel"><div class="panel-head"><div><h2>Grid demand · live forecast</h2><p>Recent readings and the latest predicted value</p></div><span class="pill">LIVE SESSION</span></div><div class="chart" id="overviewChart"><div class="chart-empty">Loading historical demand from your dataset…</div></div><div class="chart-legend"><span><i class="legend-dot" style="background:#4d9df5"></i>Historical demand</span><span><i class="legend-dot" style="background:#35d0aa"></i>Predicted demand</span></div></div>
+      <div class="panel model-performance-panel">
+        <div class="panel-head"><div><h2>Model performance</h2><p>Evaluation metrics from the latest successful MLflow run</p></div><span class="pill">MLFLOW</span></div>
+        <div class="metric-grid">
+          <div class="metric-tile"><span>MAE</span><strong id="overviewMae">—</strong><small>Mean absolute error</small></div>
+          <div class="metric-tile"><span>RMSE</span><strong id="overviewRmse">—</strong><small>Root mean squared error</small></div>
+          <div class="metric-tile"><span>R²</span><strong id="overviewR2">—</strong><small>Coefficient of determination</small></div>
+        </div>
+        <div class="metric-foot"><span id="overviewMetricModel">Loading model metrics…</span><button class="text-btn" onclick="go('performance')">View details ↗</button></div>
+      </div>
+      <div class="bottom-grid">
+        <div class="panel"><div class="panel-head"><div><h2>Model snapshot</h2><p>Currently loaded prediction pipeline</p></div></div><div class="model-row"><span>Estimator</span><strong id="snapshotModel">Not yet used</strong></div><div class="model-row"><span>Forecast target</span><strong>Next 5-minute demand</strong></div><div class="model-row"><span>Pipeline</span><strong>Preprocess → Select → Predict</strong></div></div>
+        <div class="panel"><div class="panel-head"><div><h2>Latest forecast details</h2><p>Most recent successful request</p></div></div><div class="model-row"><span>Input time</span><strong id="lastInput">—</strong></div><div class="model-row"><span>Forecast time</span><strong id="lastForecast">—</strong></div><div class="model-row"><span>Prediction mode</span><strong id="lastMode">—</strong></div></div>
+      </div>
+    </div>
+    <div>
+      <div class="panel"><div class="panel-head"><div><h2>Demand profile</h2><p>Last 24 hours · actual dataset readings</p></div><span class="pill">DATASET</span></div>
+        <div class="model-row"><span>24h average</span><strong id="statAverage">—</strong></div>
+        <div class="model-row"><span>Peak demand</span><strong id="statMaximum">—</strong></div>
+        <div class="model-row"><span>Minimum demand</span><strong id="statMinimum">—</strong></div>
+        <div class="model-row"><span>Total records</span><strong id="statRecords">—</strong></div>
+        <div class="model-row"><span>Peak recorded at</span><strong id="statPeakTime">—</strong></div>
+      </div>
+      <div class="panel"><div class="panel-head"><div><h2>Forecast controls</h2><p>Start a new electricity demand forecast</p></div></div><div class="quick-actions">
+        <button class="action" id="quickDemo"><span class="action-icon">⚡</span><span><strong>Run demo prediction</strong><small>Use the latest valid dataset record</small></span></button>
+        <button class="action" id="quickManual"><span class="action-icon">⇧</span><span><strong>Manual prediction</strong><small>Upload your own demand history CSV</small></span></button>
+        <button class="action" id="quickHistory"><span class="action-icon">◷</span><span><strong>View prediction history</strong><small>See predictions from this session</small></span></button>
+      </div><div class="result-box"><div class="result-label">Latest prediction</div><div class="result-number" id="latestSideValue">—</div><div class="result-meta" id="latestSideTime">No forecast generated yet</div></div></div>
+      <div class="panel"><div class="panel-head"><div><h2>Grid operation insights</h2><p>General demand-management guidance</p></div><span class="pill">RULE BASED</span></div><div class="tips"><div class="tip"><span>✦</span><div>Stagger flexible loads where possible to avoid simultaneous high-demand usage.</div></div><div class="tip"><span>✦</span><div>Switch off idle equipment and use energy-efficient lighting.</div></div><div class="tip"><span>✦</span><div>Review demand patterns regularly before making operational decisions.</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="page" id="predictions">
+  <div class="topbar"><div><div class="eyebrow">Energy intelligence / Predictions</div><h1>Generate prediction</h1><p class="sub">Forecast electricity demand for the next five-minute interval.</p></div></div>
+  <div class="panel">
+    <div class="mode-tabs"><button class="active" data-mode="demo">Demo mode</button><button data-mode="manual">Manual mode</button></div>
+    <div class="mode-content active" id="demoMode"><p class="sub">Uses the latest valid record from data/ML_Dataset.csv.</p><button class="btn" id="demoBtn">Run demo prediction</button></div>
+    <div class="mode-content" id="manualMode">
+      <div class="field"><label>Demand history CSV</label><input id="historyFile" type="file" accept=".csv,text/csv"><small>Exactly 289 five-minute readings, oldest first and latest last. Use a Power demand column or a single numeric column.</small></div>
+      <div class="field"><label>Timestamp of latest reading</label><input id="timestamp" type="datetime-local" step="300"></div>
+      <div class="two"><div class="field"><label>Temperature (temp)</label><input id="temp" type="number" step="any"></div><div class="field"><label>Dew point (dwpt)</label><input id="dwpt" type="number" step="any"></div><div class="field"><label>Relative humidity (0–100)</label><input id="rhum" type="number" min="0" max="100" step="any"></div><div class="field"><label>Wind direction (0–360)</label><input id="wdir" type="number" min="0" max="360" step="any"></div><div class="field"><label>Wind speed</label><input id="wspd" type="number" min="0" step="any"></div><div class="field"><label>Pressure</label><input id="pres" type="number" min="0.001" step="any"></div></div>
+      <button class="btn" id="manualBtn">Predict next 5 minutes</button>
+    </div><div class="message" id="formMessage" role="status"></div>
+  </div>
+  <div class="panel" id="predictionResult" style="display:none"><div class="panel-head"><div><h2>Prediction result</h2><p>Latest successful forecast</p></div><span class="pill">COMPLETED</span></div><div class="result-number" id="predictionValue">—</div><div class="result-meta" id="predictionMeta"></div></div>
+</section>
+
+<section class="page" id="analytics">
+  <div class="topbar">
+    <div><div class="eyebrow">Energy intelligence / Analytics</div><h1>Demand analytics</h1><p class="sub">Explore real electricity-demand patterns across the latest 24 hours in your dataset.</p></div>
+    <button class="btn" id="refreshAnalytics">↻ Refresh data</button>
+  </div>
+  <div class="kpis analytics-kpis">
+    <div class="card kpi"><div class="kpi-top">24-hour average <span class="kpi-icon">∿</span></div><div class="kpi-value" id="analyticsAverage">—</div><div class="kpi-note">Mean demand across available readings</div></div>
+    <div class="card kpi"><div class="kpi-top">Peak demand <span class="kpi-icon">↗</span></div><div class="kpi-value" id="analyticsPeak">—</div><div class="kpi-note" id="analyticsPeakTime">Highest recorded reading</div></div>
+    <div class="card kpi"><div class="kpi-top">Lowest demand <span class="kpi-icon">↘</span></div><div class="kpi-value" id="analyticsLow">—</div><div class="kpi-note">Lowest recorded reading</div></div>
+    <div class="card kpi"><div class="kpi-top">Readings analyzed <span class="kpi-icon">▦</span></div><div class="kpi-value" id="analyticsCount">—</div><div class="kpi-note">Five-minute intervals · latest window</div></div>
+  </div>
+  <div class="analytics-grid">
+    <div class="panel analytics-main">
+      <div class="panel-head"><div><h2>Demand over the last 24 hours</h2><p>Actual dataset readings · five-minute resolution</p></div><span class="pill">ACTUAL DATA</span></div>
+      <div class="analytics-chart" id="analyticsTrend"><div class="chart-empty">Loading demand history…</div></div>
+    </div>
+    <div class="panel">
+      <div class="panel-head"><div><h2>Average demand by time of day</h2><p>Grouped into four six-hour periods</p></div></div>
+      <div id="periodBreakdown" class="period-list"><div class="chart-empty">Loading period profile…</div></div>
+    </div>
+    <div class="panel">
+      <div class="panel-head"><div><h2>Hourly demand profile</h2><p>Average demand for each clock hour</p></div><span class="pill">24 HOURS</span></div>
+      <div class="analytics-chart analytics-bars" id="hourlyProfile"><div class="chart-empty">Loading hourly profile…</div></div>
+    </div>
+    <div class="panel">
+      <div class="panel-head"><div><h2>Demand range</h2><p>Minimum, average and maximum demand in this window</p></div></div>
+      <div id="demandRange" class="range-profile"><div class="chart-empty">Loading demand range…</div></div>
+      <div class="analytics-note">All analytics are calculated from the actual readings returned by <code>/dashboard-data</code>. No regional or synthetic values are used.</div>
+    </div>
+  </div>
+  <div class="message" id="analyticsMessage">Analytics use the latest 288 readings currently supplied by the dashboard API.</div>
+</section>
+<section class="page" id="performance">
+  <div class="topbar"><div><div class="eyebrow">Energy intelligence / Model</div><h1>Model performance</h1><p class="sub">Evaluation metrics retrieved directly from your MLflow experiment.</p></div><button class="btn" id="refreshMetrics">↻ Refresh metrics</button></div>
+  <div class="panel"><div class="panel-head"><div><h2>Selected model evaluation</h2><p id="performanceRun">Loading latest successful Linear Regression run…</p></div><span class="pill">MLFLOW · LIVE DATA</span></div>
+    <div class="metric-grid metric-grid-large">
+      <div class="metric-tile metric-blue"><span>MAE</span><strong id="performanceMae">—</strong><small>Average absolute prediction error</small></div>
+      <div class="metric-tile metric-purple"><span>RMSE</span><strong id="performanceRmse">—</strong><small>Error metric that penalizes larger errors</small></div>
+      <div class="metric-tile metric-teal"><span>R²</span><strong id="performanceR2">—</strong><small>Proportion of variance explained by the model</small></div>
+    </div>
+    <div class="model-row"><span>Active estimator</span><strong id="performanceModel">LinearRegression</strong></div>
+    <div class="model-row"><span>MLflow run</span><strong id="performanceRunName">—</strong></div>
+    <div class="model-row"><span>Tracking source</span><strong>Local MLflow · mlflow.db</strong></div>
+    <div class="message" id="metricsMessage" role="status">Metrics are fetched from the local MLflow database.</div>
+  </div>
+  <div class="panel"><div class="panel-head"><div><h2>Model comparison</h2><p>Best successful run recorded for each estimator in MLflow, ranked by MAE.</p></div><span class="pill">RUN COMPARISON</span></div><div style="overflow:auto"><table style="width:100%;border-collapse:collapse;font-size:12px;text-align:left"><thead><tr style="color:var(--muted)"><th style="padding:11px">Model</th><th>MLflow run</th><th>MAE ↓</th><th>RMSE</th><th>R²</th></tr></thead><tbody id="modelComparisonRows"><tr><td colspan="5" style="padding:18px;color:var(--muted)">Loading model comparison…</td></tr></tbody></table></div><div class="message" id="comparisonMessage">Comparison is loaded from successful MLflow runs.</div></div>
+  <div class="panel"><div class="panel-head"><div><h2>How to read these metrics</h2><p>Regression model evaluation</p></div><span class="pill">GUIDE</span></div>
+    <div class="model-row"><span>MAE</span><strong>Lower is better</strong></div>
+    <div class="model-row"><span>RMSE</span><strong>Lower is better</strong></div>
+    <div class="model-row"><span>R²</span><strong>Closer to 1 is generally better</strong></div>
+    <p class="sub" style="margin-top:12px">These values describe the evaluation recorded for the selected MLflow run. They are not live forecast values.</p>
+  </div>
+</section>
+
+
+<section class="page" id="history"><div class="topbar"><div><div class="eyebrow">Energy intelligence / History</div><h1>Prediction history</h1><p class="sub">Review forecasts saved by the FastAPI application.</p></div><button class="btn" id="refreshHistory">↻ Refresh history</button></div><div class="panel"><div class="panel-head"><div><h2>Recent predictions</h2><p id="historySummary">Loading saved predictions…</p></div><div style="display:flex;gap:9px;flex-wrap:wrap"><input id="historySearch" placeholder="Search mode, date or model…" style="background:#151522;border:1px solid var(--line);border-radius:10px;color:var(--text);padding:9px 12px;min-width:220px"><button class="btn" id="exportHistory">Export CSV</button></div></div><div style="overflow:auto"><table style="width:100%;border-collapse:collapse;font-size:11px;text-align:left"><thead><tr style="color:var(--muted)"><th style="padding:11px">Mode</th><th>Input time</th><th>Forecast time</th><th>Prediction</th><th>Model</th></tr></thead><tbody id="historyRows"><tr><td colspan="5" style="padding:18px;color:var(--muted)">No predictions yet.</td></tr></tbody></table></div></div></section>
+<div class="footer">Smart Energy Predictor · FastAPI · Scikit-learn · MLflow</div>
+</main></div>
+<script>
+const $=id=>document.getElementById(id);let history=[],count=0,lastHistory=[];
+function go(page){document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id===page));document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===page));}
+document.querySelectorAll('.nav button').forEach(b=>b.addEventListener('click',()=>{go(b.dataset.page);if(b.dataset.page==='analytics')loadAnalytics();if(b.dataset.page==='history')loadPredictionHistory();if(b.dataset.page==='performance')loadModelMetrics();}));
+$('quickDemo').onclick=()=>{go('predictions');runDemo()};$('quickManual').onclick=()=>{go('predictions');setMode('manual')};$('quickHistory').onclick=()=>go('history');
+function setMode(mode){document.querySelectorAll('[data-mode]').forEach(b=>b.classList.toggle('active',b.dataset.mode===mode));$('demoMode').classList.toggle('active',mode==='demo');$('manualMode').classList.toggle('active',mode==='manual');}
+document.querySelectorAll('[data-mode]').forEach(b=>b.onclick=()=>setMode(b.dataset.mode));
+
+
+async function health(){try{let r=await fetch('/health'),d=await r.json();let t=d.model_loaded?'API connected · model loaded':'API starting';$('apiStatus').textContent='● '+t;$('sideStatus').textContent=t;if(d.model_name){$('kpiModel').textContent=d.model_name;$('snapshotModel').textContent=d.model_name;$('performanceModel').textContent=d.model_name;}}catch{$('apiStatus').textContent='API unavailable';$('sideStatus').textContent='Cannot reach local API';}}
+function formatMetric(value,digits=2){return value===null||value===undefined||!Number.isFinite(Number(value))?'—':Number(value).toFixed(digits);}
+async function loadModelMetrics(){
+  const message=$('metricsMessage');
+  try{
+    const response=await fetch('/model-metrics');
+    const data=await response.json();
+    if(!response.ok) throw Error(data.detail||'Unable to load MLflow metrics.');
+    const m=data.metrics||{};
+    const mae=formatMetric(m.mae,2),rmse=formatMetric(m.rmse,2),r2=formatMetric(m.r2,5);
+    ['overviewMae','performanceMae'].forEach(id=>$(id).textContent=mae);
+    ['overviewRmse','performanceRmse'].forEach(id=>$(id).textContent=rmse);
+    ['overviewR2','performanceR2'].forEach(id=>$(id).textContent=r2);
+    $('overviewMetricModel').textContent=`${data.model||'Model'} · ${data.run_name||'MLflow run'}`;
+    $('performanceModel').textContent=data.model||'—';
+    $('performanceRunName').textContent=data.run_name||'—';
+    const comparison=data.comparison||[];
+    $('modelComparisonRows').innerHTML=comparison.map((item,index)=>`<tr><td style="padding:12px;border-top:1px solid var(--line)"><strong>${item.model}</strong>${index===0?' <span class="pill">BEST MAE</span>':''}</td><td style="border-top:1px solid var(--line)">${item.run_name}</td><td style="border-top:1px solid var(--line)">${formatMetric(item.metrics.mae,2)}</td><td style="border-top:1px solid var(--line)">${formatMetric(item.metrics.rmse,2)}</td><td style="border-top:1px solid var(--line)">${formatMetric(item.metrics.r2,5)}</td></tr>`).join('')||'<tr><td colspan="5">No comparable successful runs found.</td></tr>';
+    $('comparisonMessage').textContent=`Compared ${comparison.length} estimator(s) from successful MLflow runs.`;
+    $('comparisonMessage').className='message success';
+
+    $('performanceRun').textContent=`Successful MLflow run: ${data.run_name||'—'}`;
+    message.textContent='Metrics loaded successfully from MLflow.';
+    message.className='message success';
+  }catch(error){
+    $('overviewMetricModel').textContent='MLflow metrics unavailable';
+    message.textContent=error.message;
+    message.className='message error';
+  }
+}
+$('refreshMetrics').onclick=loadModelMetrics;
+function chart(values,pred){
+  const box=$('overviewChart');
+  const rows=(values||[]).slice(-288);
+  if(!rows.length){box.innerHTML='<div class="chart-empty">No historical readings are available.</div>';return;}
+  const vals=rows.map(x=>Number(typeof x==='number'?x:x.demand));
+  if(pred!==null&&pred!==undefined) vals.push(Number(pred));
+  const lo=Math.min(...vals),hi=Math.max(...vals),range=hi-lo||1;
+  const left=42,right=690,top=18,bottom=188;
+  const x=i=>left+i*(right-left)/(vals.length-1||1);
+  const y=v=>bottom-(v-lo)/range*(bottom-top);
+  const points=vals.map((v,i)=>`${x(i)},${y(v)}`).join(' ');
+  const histCount=rows.length;
+  const histPoints=vals.slice(0,histCount).map((v,i)=>`${x(i)},${y(v)}`).join(' ');
+  const last=pred!==null&&pred!==undefined?{x:x(vals.length-1),y:y(Number(pred))}:null;
+  const stamp=row=>row&&typeof row==='object'&&row.timestamp?new Date(row.timestamp):null;
+  const labels=[stamp(rows[0]),stamp(rows[Math.floor(rows.length/2)]),stamp(rows[rows.length-1])].map((d,i)=>d?d.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'}):`Reading ${i===0?'1':i===1?Math.ceil(rows.length/2):rows.length}`);
+  box.innerHTML=`<svg viewBox="0 0 700 225" preserveAspectRatio="none">
+    <defs><linearGradient id="demandFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#5d9cff" stop-opacity=".32"/><stop offset="100%" stop-color="#5d9cff" stop-opacity="0"/></linearGradient></defs>
+    ${[top,(top+bottom)/2,bottom].map(yy=>`<line x1="${left}" y1="${yy}" x2="${right}" y2="${yy}" stroke="#34344b" stroke-dasharray="3 5"/>`).join('')}
+    <text x="5" y="${top+4}" fill="#9695ad" font-size="10">${hi.toFixed(0)}</text>
+    <text x="5" y="${bottom}" fill="#9695ad" font-size="10">${lo.toFixed(0)}</text>
+    <polygon points="${left},${bottom} ${histPoints} ${x(histCount-1)},${bottom}" fill="url(#demandFill)"/>
+    <polyline points="${histPoints}" fill="none" stroke="#5d9cff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+    ${last?`<line x1="${x(histCount-1)}" y1="${y(vals[histCount-1])}" x2="${last.x}" y2="${last.y}" stroke="#50d5b2" stroke-width="2.8" stroke-dasharray="5 4"/><circle cx="${last.x}" cy="${last.y}" r="5" fill="#50d5b2" stroke="#eafff8" stroke-width="2"/><text x="${last.x-6}" y="${Math.max(12,last.y-12)}" text-anchor="end" fill="#50d5b2" font-size="10">Forecast</text>`:''}
+    <text x="${left}" y="216" fill="#9695ad" font-size="10">${labels[0]}</text>
+    <text x="${(left+right)/2}" y="216" text-anchor="middle" fill="#9695ad" font-size="10">${labels[1]}</text>
+    <text x="${right}" y="216" text-anchor="end" fill="#9695ad" font-size="10">${labels[2]}</text>
+  </svg>`;
+}
+async function loadDashboardData(){
+  try{
+    const response=await fetch('/dashboard-data');
+    const data=await response.json();
+    if(!response.ok) throw Error(data.detail||'Could not load dashboard data.');
+    lastHistory=data.history;
+    chart(lastHistory,null);
+    $('kpiForecastLabel').textContent='Latest recorded demand';
+    $('kpiForecastNote').textContent='Latest reading from your dataset';
+    $('kpiForecast').textContent=Number(data.latest.demand).toLocaleString(undefined,{maximumFractionDigits:2});
+    $('statAverage').textContent=Number(data.statistics.average).toLocaleString(undefined,{maximumFractionDigits:2});
+    $('statMaximum').textContent=Number(data.statistics.maximum).toLocaleString(undefined,{maximumFractionDigits:2});
+    $('statMinimum').textContent=Number(data.statistics.minimum).toLocaleString(undefined,{maximumFractionDigits:2});
+    $('statRecords').textContent=Number(data.total_records).toLocaleString();
+    $('statPeakTime').textContent=new Date(data.statistics.peak_timestamp).toLocaleString();
+    $('latestSideTime').textContent='Latest dataset reading · '+new Date(data.latest.timestamp).toLocaleString();
+  }catch(error){
+    $('overviewChart').innerHTML=`<div class="chart-empty">Unable to load dataset chart.<br>${error.message}</div>`;
+  }
+}
+
+function compactNumber(value){return Number(value).toLocaleString(undefined,{maximumFractionDigits:2});}
+function drawAnalyticsTrend(rows){
+  const box=$('analyticsTrend'),values=rows.map(r=>Number(r.demand)).filter(Number.isFinite);
+  if(values.length<2){box.innerHTML='<div class="chart-empty">Not enough valid readings to draw the trend.</div>';return;}
+  const w=760,h=250,left=42,right=744,top=18,bottom=204,min=Math.min(...values),max=Math.max(...values),span=max-min||1;
+  const x=i=>left+i*(right-left)/(values.length-1),y=v=>bottom-(v-min)/span*(bottom-top);
+  const pts=values.map((v,i)=>`${x(i)},${y(v)}`).join(' ');
+  const labels=[rows[0],rows[Math.floor(rows.length/2)],rows[rows.length-1]].map(r=>new Date(r.timestamp).toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}));
+  box.innerHTML=`<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none"><defs><linearGradient id="analyticsArea" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#9560ff" stop-opacity=".34"/><stop offset="100%" stop-color="#9560ff" stop-opacity="0"/></linearGradient></defs>${[top,(top+bottom)/2,bottom].map(yy=>`<line x1="${left}" y1="${yy}" x2="${right}" y2="${yy}" stroke="#34344b" stroke-dasharray="4 5"/>`).join('')}<text x="3" y="${top+4}" fill="#9695ad" font-size="10">${max.toFixed(0)}</text><text x="3" y="${bottom}" fill="#9695ad" font-size="10">${min.toFixed(0)}</text><polygon points="${left},${bottom} ${pts} ${right},${bottom}" fill="url(#analyticsArea)"/><polyline points="${pts}" fill="none" stroke="#a879ff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/><text x="${left}" y="237" fill="#9695ad" font-size="10">${labels[0]}</text><text x="${(left+right)/2}" y="237" text-anchor="middle" fill="#9695ad" font-size="10">${labels[1]}</text><text x="${right}" y="237" text-anchor="end" fill="#9695ad" font-size="10">${labels[2]}</text></svg>`;
+}
+function drawHourlyProfile(rows){
+  const groups=Array.from({length:24},(_,hour)=>({hour,values:[]}));
+  rows.forEach(r=>{const d=new Date(r.timestamp),v=Number(r.demand);if(Number.isFinite(v))groups[d.getHours()].values.push(v);});
+  const data=groups.map(g=>({...g,avg:g.values.length?g.values.reduce((a,b)=>a+b,0)/g.values.length:null}));
+  const valid=data.filter(d=>d.avg!==null),box=$('hourlyProfile');
+  if(!valid.length){box.innerHTML='<div class="chart-empty">No hourly values available.</div>';return;}
+  const max=Math.max(...valid.map(d=>d.avg)),min=Math.min(...valid.map(d=>d.avg)),w=760,h=260,left=30,right=748,top=16,bottom=208,slot=(right-left)/24,bw=slot*.58;
+  box.innerHTML=`<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none">${[top,(top+bottom)/2,bottom].map(yy=>`<line x1="${left}" y1="${yy}" x2="${right}" y2="${yy}" stroke="#34344b" stroke-dasharray="4 5"/>`).join('')}${data.map(d=>{if(d.avg===null)return '';const bh=(d.avg/Math.max(max,1))*(bottom-top);return `<rect x="${left+d.hour*slot+(slot-bw)/2}" y="${bottom-bh}" width="${bw}" height="${bh}" rx="3" fill="${d.avg===max?'#c084fc':'#5d9cff'}" opacity=".88"><title>${String(d.hour).padStart(2,'0')}:00 · ${d.avg.toFixed(2)} · ${d.values.length} readings</title></rect>`}).join('')}${[0,6,12,18,23].map(hr=>`<text x="${left+hr*slot+slot/2}" y="235" text-anchor="middle" fill="#9695ad" font-size="10">${String(hr).padStart(2,'0')}:00</text>`).join('')}</svg>`;
+}
+function drawPeriodBreakdown(rows){
+  const buckets=[{name:'Night',start:0,end:6,values:[]},{name:'Morning',start:6,end:12,values:[]},{name:'Afternoon',start:12,end:18,values:[]},{name:'Evening',start:18,end:24,values:[]}];
+  rows.forEach(r=>{const hour=new Date(r.timestamp).getHours(),b=buckets.find(x=>hour>=x.start&&hour<x.end);if(b&&Number.isFinite(Number(r.demand)))b.values.push(Number(r.demand));});
+  const avgs=buckets.map(b=>({...b,avg:b.values.length?b.values.reduce((a,v)=>a+v,0)/b.values.length:null})),max=Math.max(1,...avgs.map(b=>b.avg||0));
+  $('periodBreakdown').innerHTML=avgs.map(b=>`<div class="period-row"><span>${b.name}</span><div class="period-track"><div class="period-fill" style="width:${b.avg===null?0:(b.avg/max*100)}%"></div></div><strong>${b.avg===null?'—':compactNumber(b.avg)}</strong></div>`).join('');
+}
+function drawDemandRange(rows){
+  const vals=rows.map(r=>Number(r.demand)).filter(Number.isFinite),lo=Math.min(...vals),hi=Math.max(...vals),avg=vals.reduce((a,b)=>a+b,0)/Math.max(vals.length,1);
+  const range=hi-lo||1;
+  $('demandRange').innerHTML=[{label:'Minimum demand',value:lo,color:'#5d9cff'},{label:'24-hour average',value:avg,color:'#50d5b2'},{label:'Peak demand',value:hi,color:'#b17bff'}].map(x=>`<div><div class="range-item"><span>${x.label}</span><strong>${compactNumber(x.value)}</strong></div><div class="range-track"><i style="width:${Math.max(3,(x.value-lo)/range*100)}%;background:${x.color}"></i></div></div>`).join('');
+}
+async function loadAnalytics(){
+  const msg=$('analyticsMessage');
+  try{
+    if(!lastHistory.length){const r=await fetch('/dashboard-data'),d=await r.json();if(!r.ok)throw Error(d.detail||'Unable to load dataset');lastHistory=d.history;}
+    const rows=lastHistory.slice(-288),vals=rows.map(r=>Number(r.demand)).filter(Number.isFinite);
+    if(!vals.length)throw Error('No valid demand readings were returned.');
+    const avg=vals.reduce((a,b)=>a+b,0)/vals.length,peak=Math.max(...vals),low=Math.min(...vals),peakRow=rows.find(r=>Number(r.demand)===peak);
+    $('analyticsAverage').textContent=compactNumber(avg);$('analyticsPeak').textContent=compactNumber(peak);$('analyticsLow').textContent=compactNumber(low);$('analyticsCount').textContent=vals.length.toLocaleString();
+    $('analyticsPeakTime').textContent=peakRow?'Recorded '+new Date(peakRow.timestamp).toLocaleString():'Highest recorded reading';
+    drawAnalyticsTrend(rows);drawHourlyProfile(rows);drawPeriodBreakdown(rows);drawDemandRange(rows);
+    msg.textContent=`Analysis refreshed · ${vals.length} actual readings · ${new Date(rows[0].timestamp).toLocaleString()} to ${new Date(rows[rows.length-1].timestamp).toLocaleString()}.`;
+    msg.className='message success';
+  }catch(error){msg.textContent=error.message;msg.className='message error';}
+}
+$('refreshAnalytics').onclick=loadAnalytics;
+
+function render(data,mode){
+  count++;
+  let record={mode,input:data.input_timestamp,forecast:data.predicted_timestamp,value:Number(data.prediction),model:data.model};
+  history.unshift(record);
+  $('kpiForecastLabel').textContent='Latest forecast';
+  $('kpiForecastNote').textContent='Predicted demand for next 5 minutes';
+  $('kpiForecast').textContent=record.value.toLocaleString(undefined,{maximumFractionDigits:2});
+  $('kpiCount').textContent=count;
+  $('kpiModel').textContent=record.model;
+  $('snapshotModel').textContent=record.model;
+  $('lastInput').textContent=new Date(record.input).toLocaleString();
+  $('lastForecast').textContent=new Date(record.forecast).toLocaleString();
+  $('lastMode').textContent=mode;
+  $('latestSideValue').textContent=record.value.toLocaleString(undefined,{maximumFractionDigits:2});
+  $('latestSideTime').textContent='Forecast for '+new Date(record.forecast).toLocaleString();
+  $('predictionResult').style.display='block';
+  $('predictionValue').textContent=record.value.toLocaleString(undefined,{maximumFractionDigits:2});
+  $('predictionMeta').textContent=`${mode} · ${record.model} · ${new Date(record.forecast).toLocaleString()}`;
+  chart(lastHistory,record.value);
+  loadPredictionHistory();
+}
+async function request(path,payload,mode,btn){btn.disabled=true;let old=btn.textContent;btn.textContent='Predicting…';$('formMessage').textContent='Sending request to prediction API…';$('formMessage').className='message';try{let r=await fetch(path,{method:'POST',headers:payload?{'Content-Type':'application/json'}:{},body:payload?JSON.stringify(payload):undefined});let d=await r.json();if(!r.ok)throw Error(typeof d.detail==='string'?d.detail:JSON.stringify(d.detail));render(d,mode);$('formMessage').textContent='Prediction completed successfully.';$('formMessage').className='message success';}catch(e){$('formMessage').textContent=e.message;$('formMessage').className='message error';}finally{btn.disabled=false;btn.textContent=old;}}
+function runDemo(){request('/demo-predict',null,'Demo',$('demoBtn'));}
+$('demoBtn').onclick=runDemo;
+function parseCsv(text){let lines=text.replace(/^\uFEFF/,'').trim().split(/\r?\n/).filter(Boolean);if(lines.length<2)throw Error('CSV must contain a header and 289 readings.');let h=lines[0].split(',').map(x=>x.trim().replace(/^"|"$/g,''));let idx=h.findIndex(x=>['powerdemand','demand','value'].includes(x.toLowerCase().replace(/[\s_-]/g,'')));if(idx<0&&h.length===1)idx=0;if(idx<0)throw Error('Could not identify demand column. Use Power demand.');let a=lines.slice(1).map((line,i)=>{let v=Number(line.split(',')[idx]);if(!Number.isFinite(v))throw Error(`Invalid value on row ${i+1}`);return v});if(a.length!==289)throw Error(`Expected 289 readings, found ${a.length}.`);return a;}
+$('manualBtn').onclick=async()=>{try{let f=$('historyFile').files[0];if(!f)throw Error('Upload a demand history CSV.');let vals=parseCsv(await f.text()),ts=$('timestamp').value;if(!ts)throw Error('Enter the latest reading timestamp.');let weather={};for(let k of ['temp','dwpt','rhum','wdir','wspd','pres']){let v=$ (k).value;if(v==='')throw Error(`Enter ${k}.`);weather[k]=Number(v);}lastHistory=vals;let payload={timestamp:ts+':00',demand_history:vals,...weather};await request('/predict',payload,'Manual',$('manualBtn'));}catch(e){$('formMessage').textContent=e.message;$('formMessage').className='message error';}};
+function renderHistoryTable(){
+  const q=($('historySearch').value||'').toLowerCase();
+  const rows=history.filter(x=>[x.mode,x.input_timestamp,x.forecast_timestamp,x.model].join(' ').toLowerCase().includes(q));
+  $('historyRows').innerHTML=rows.length?rows.map(x=>`<tr><td style="padding:11px;border-top:1px solid var(--line)">${x.mode}</td><td style="border-top:1px solid var(--line)">${new Date(x.input_timestamp).toLocaleString()}</td><td style="border-top:1px solid var(--line)">${new Date(x.forecast_timestamp).toLocaleString()}</td><td style="border-top:1px solid var(--line)">${Number(x.prediction).toLocaleString(undefined,{maximumFractionDigits:2})}</td><td style="border-top:1px solid var(--line)">${x.model}</td></tr>`).join(''):'<tr><td colspan="5" style="padding:18px;color:var(--muted)">No matching predictions found.</td></tr>';
+  $('historySummary').textContent=`${rows.length} shown · ${history.length} saved prediction(s)`;
+}
+async function loadPredictionHistory(){
+  try{
+    const response=await fetch('/prediction-history'),data=await response.json();
+    if(!response.ok)throw Error(data.detail||'Unable to load prediction history.');
+    history=data.predictions||[];count=history.length;
+    $('kpiCount').textContent=count;
+    renderHistoryTable();
+  }catch(error){$('historySummary').textContent=error.message;}
+}
+$('refreshHistory').onclick=loadPredictionHistory;
+
+
+$('historySearch').addEventListener('input',renderHistoryTable);
+$('exportHistory').onclick=()=>{
+  if(!history.length)return;
+  const rows=[['mode','input_timestamp','forecast_timestamp','prediction','model','logged_at'],...history.map(x=>[x.mode,x.input_timestamp,x.forecast_timestamp,x.prediction,x.model,x.logged_at])];
+  const csv=rows.map(r=>r.map(v=>`"${String(v??'').replace(/"/g,'""')}"`).join(',')).join('\n');
+  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download='smart-energy-prediction-history.csv';a.click();URL.revokeObjectURL(a.href);
+};
+health();loadDashboardData();loadModelMetrics();loadPredictionHistory();
+</script>
+</body></html>
